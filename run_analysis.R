@@ -45,8 +45,11 @@ run_analysis <- function() {
     # Finally, create a CSV file of tidyDataSet and return the file name
     setwd(origDir);
     tidyDataSet_csv <- "tidyDataSet.csv";
-    write.csv(tidyDataSet, tidyDataSet_csv);
-    print(paste("Created ", tidyDataSet_csv));
+    tidyDataSet_txt <- "tidyDataSet.txt";
+    #write.csv(tidyDataSet, tidyDataSet_csv);
+    write.table(tidyDataSet, tidyDataSet_txt, row.names = FALSE);
+    #print(paste("Created ", tidyDataSet_csv));
+    print(paste("Created ", tidyDataSet_txt));
     
-    tidyDataSet_csv;
+    tidyDataSet_txt;
 }
