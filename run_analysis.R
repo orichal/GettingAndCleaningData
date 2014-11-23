@@ -15,10 +15,8 @@ run_analysis <- function() {
     features$colClasss <- sapply((regexpr(patMeanStd, features$featureName) > 0), function (cond) {if (cond) {"numeric"} else {"NULL"}});
     
     # subject will contain a merge of subject (user) of train and test
-    # subject are numbers, so we add the maximum train nummber to the test number, in order to have unique numbers
     subject_train <- read.table("train/subject_train.txt");
     subject_test <- read.table("test/subject_test.txt");
-    subject_test$V1 <- subject_test$V1 + c(max(subject_train$V1)); # Create unique subjects across train and test
     subject <- rbind(subject_train, subject_test);
     names(subject) <- c("Subject");
     
